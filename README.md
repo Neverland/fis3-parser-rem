@@ -51,6 +51,7 @@ body {
 
 ## about font-size
 - 对font-size进行了特殊处理,没有使用rem而是根据dpi输出三种大小字体
+
 ### type: default 
 
 ```css
