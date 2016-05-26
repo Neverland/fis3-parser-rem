@@ -1,0 +1,28 @@
+{
+  "name": "fis3-parser-rem",
+  "version": "0.1.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "css": "^2.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node ./spec/test/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Neverland/fis3-parser-rem.git"
+  },
+  "author": [
+    {
+      "name": "ienix",
+      "email": "ienix@foxmail.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Neverland/fis3-parser-rem/issues"
+  },
+  "homepage": "https://github.com/Neverland/fis3-parser-rem#readme"
+}
