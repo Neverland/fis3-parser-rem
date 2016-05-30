@@ -17,7 +17,6 @@ var entry = module.exports = function (content, file, conf) {
 entry.defaultOptions = {
     rem: 18,
     min: 3,
-    type: 'default',
     exclude: [
         'width', 'height',
         'background', 'background-size'

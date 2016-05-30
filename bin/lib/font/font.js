@@ -17,7 +17,6 @@ module.exports = function (fonts, conf) {
     var result;
 
     if (!selectors.length) {
-        console.log('Error: has no `font-size` data!')
         return '';
     }
 

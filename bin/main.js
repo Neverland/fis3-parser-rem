@@ -52,7 +52,7 @@ module.exports = function (content, file, conf) {
                 var value = val.value;
                 var property = val.property.replace(styleExpr, '');
 
-                if (/@norem\b/g.test(value) 
+                if (/@norem\b/g.test(value)
                     || !/px/g.test(value)
                     || exclude.indexOf(property) === 0) {
 
@@ -75,7 +75,6 @@ module.exports = function (content, file, conf) {
 
         return rules;
     }
-
 
     function post() {
         var styleResult = prepare() || [];
