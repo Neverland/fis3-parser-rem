@@ -20,7 +20,7 @@ module.exports = function (content, file, conf) {
 
     function entry() {
         // css文件第一行必须为 /*userem*/
-        if (!/^(\/\*@userem\*\/)/i.test(content)
+        if (!/(\/\*!@userem\*\/)/i.test(content)
             || !rules.length) {
             // ignore file;
             return false;
