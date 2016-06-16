@@ -7,15 +7,18 @@
 
 "use strict";
 
+var dpi1 = [];
 var dpi2 = [];
 var dpi3 = [];
 var flexible = [];
+var globalDpr;
 
 module.exports = function (fonts, conf) {
     var selectors = Object.keys(fonts);
     var type = conf.type ==='default';
     var result;
 
+    globalDpr = conf.dpr;
     if (!selectors.length) {
         return '';
     }
@@ -60,9 +63,15 @@ function flexibleDprResult() {
 
 function getRealValue(value) {
     var oldVal = value.split('px');
+    var val;
 
-    return (oldVal[0] && +oldVal[0] > 3)
-        ? [oldVal[0], oldVal[1]]
+
+    if (oldVal) {
+        val = oldVal[0] / globalDpr;
+    }
+
+    return (val && +oldVal[0] > 3)
+        ? [val, oldVal[1]]
         : false;
 }
 function fontSizeDpr(selector, value) {
@@ -74,6 +83,7 @@ function fontSizeDpr(selector, value) {
 
     var rule = fontSizeDprCreate(selector, (' ' + val[1]) || '');
 
+    dpi2.push(rule.replace(/%s/g, val[0]));
     dpi2.push(rule.replace(/%s/g, val[0] * 2));
     dpi3.push(rule.replace(/%s/g, val[0] * 3));
 }
@@ -94,6 +104,9 @@ function fontSizeDprCreate(selectors, suffix) {
 
 function fontSizeDprResult() {
     return ''
+        + '\r@media(-webkit-min-device-pixel-ratio: 1) {\r'
+        + '    ' + dpi1.join('')
+        + '}'
         + '\r@media(-webkit-min-device-pixel-ratio: 2) {\r'
         + '    ' + dpi2.join('')
         + '}'
