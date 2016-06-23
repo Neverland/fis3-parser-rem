@@ -50,9 +50,10 @@ module.exports = function (content, file, conf) {
 
             declarations.forEach(function (val, idx) {
                 var value = val.value;
-                var property = val.property.replace(styleExpr, '');
+                var property = val.property && val.property.replace(styleExpr, '');
+                var next = declarations[idx + 1] || '';
 
-                if (/@norem\b/g.test(value)
+                if (/@norem\b/g.test(next.comment)
                     || !/px/g.test(value)
                     || exclude.indexOf(property) === 0) {
 
