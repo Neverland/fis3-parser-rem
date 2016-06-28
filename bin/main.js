@@ -79,13 +79,16 @@ module.exports = function (content, file, conf) {
 
     function post() {
         var styleResult = prepare() || [];
-        var fontResult = font(fontFilter.map, conf);
+
+        var fontResult = font(fontFilter.maps() || {}, conf);
         var result = {
             type: 'stylesheet',
             stylesheet: {
                 rules: styleResult
             }
         };
+
+        fontFilter.clear();
 
         return css.stringify(result)
             + (fontResult ? fontResult : '');

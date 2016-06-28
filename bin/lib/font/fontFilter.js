@@ -7,13 +7,22 @@
 
 "use strict";
 
-var map = {};
+var maps = {};
 
 exports.collection = function (item, val) {
+    if (!maps) {
+      maps = {};
+    }
 
-    if (!map[item.selectors]) {
-        map[item.selectors] = val;
+    if (!maps[item.selectors]) {
+        maps[item.selectors] = val;
     }
 };
 
-exports.map = map;
+exports.clear = function () {
+    maps = null;
+};
+
+exports.maps = function() {
+    return maps;
+};

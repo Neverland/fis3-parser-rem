@@ -13,10 +13,19 @@ var dpi3 = [];
 var flexible = [];
 var globalDpr;
 
+function clear() {
+  dpi1 = [];
+  dpi2 = [];
+  dpi3 = [];
+  flexible = [];
+}
+
 module.exports = function (fonts, conf) {
     var selectors = Object.keys(fonts);
     var type = conf.type ==='default';
     var result;
+
+    clear();
 
     globalDpr = conf.dpr;
     if (!selectors.length) {
@@ -46,15 +55,22 @@ function flexibleDpr(selector, value) {
 
 function flexibleCreate(selector, value, suffix) {
     return '\r'
-        + '[data-dpr="1"] ' + selector +' {\r'
+        + selector.split(',').map(function(item) {
+            return '[data-dpr="1"] ' + item;
+        }).join(', ') +' {\r'
         + '    font-size: ' + value + 'px;' + ' ' + suffix + '\r'
         + '}\r'
-        + '[data-dpr="2"] ' + selector +' {\r'
+        + selector.split(',').map(function(item) {
+            return '[data-dpr="2"] ' + item;
+        }).join(', ') +' {\r'
         + '    font-size: ' + (value * 2) + 'px;' + ' ' + suffix + '\r'
         + '}\r'
-        + '[data-dpr="3"] ' + selector +' {\r'
+        + selector.split(',').map(function(item) {
+            return '[data-dpr="3"] ' + item;
+        }).join(', ') +' {\r'
         + '    font-size: ' + (value * 3) + 'px;' + ' ' + suffix + '\r'
         + '}\r'
+
 }
 
 function flexibleDprResult() {
