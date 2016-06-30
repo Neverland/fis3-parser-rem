@@ -11,7 +11,7 @@ module.exports = function (str, conf) {
     return str.replace(/\b([\d\.]+)px\b/g, function(s, px) {
         px = +px;
         if (Math.abs(px) >= conf.min) {
-            return (px / conf.rem + 0.0001).toFixed(4) + 'rem';
+            return (px / conf.rem + 0.0001).toFixed(4) + 'rem/* @source-size: ' + px + 'px; */';
         }
         return s;
     });

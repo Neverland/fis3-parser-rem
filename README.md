@@ -81,3 +81,33 @@ body {
     font-size: 54px; 
 }
 ```
+
+## 关于原始值
+    -v0.0.8添加可以看到rem的原始值
+```css
+    margin: 0.6668rem/* @source-size: 25px; */ 0;
+```
+
+## changelog
+
+<table>
+    <thead>
+        <tr>
+            <th>版本</th>
+            <th>类型</th>
+            <th>说明</th>
+        </tr>
+    </thead>
+    <tbody> 
+        <tr>
+            <td>v0.0.8</td>
+            <td>Feature</td>
+            <td>添加原始值</td>
+        </tr>
+        <tr>
+            <td>v0.0.7</td>
+            <td>Bugfixed</td>
+            <td>全局选择器问题</td>
+        </tr>
+    </tbody>
+</table>
