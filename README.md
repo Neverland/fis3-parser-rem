@@ -1,20 +1,21 @@
 # fis3-parser-rem
 
-fis3 px自动转化成rem插件
+fis3 对px单位的css属性自动转化为rem为单位的fis插件。
 
 -----------------
-    - 特别鸣谢fis-parser-rem, 使用过程中发现css或其衍生文件中的注释有问题就会导致编译失败,所以我放弃了用正则查找替换的方式。
-    - 使用node-css把文件反序列化后,进行处理这样就避免了这些问题。
-    - 需要注意的是该插件要配置在css预处理器只后, 压缩打包之前的阶段。
+    - 使用node-css把css解析后,对px为单位对属性进行rem转换处理。
+    - 对文字进行特殊处理追加至产出的css文件之后。
+    - developer只用专注开发,配置灵活方便, 对原始文件无侵入。
 -----------------
 
 ## fis配置
 
 ```javascript
 fis.match('*.css', {
-    parser: [ 
-        fis.plugin('rem')
-    ]
+    parser: fis.plugin('rem', {
+        dpr: 1,
+        exclude: ['background-size']
+    })
 })
 ```
 
@@ -49,6 +50,9 @@ body {
 - min `{Number}` 最小转化值 `default` 3
 - exclude `{Array.<String>}` 忽略的样式 `default` `['width', 'height', 'background', 'background-size']`
 - type `{?default}` 支持[flexible](https://github.com/amfe/lib-flexible)
+- dpr `{!Number}` 1, 2, 3 如设计稿的尺寸为
+    *320-375 那么dpr为1 
+    *640-720 那么dpr为2 
 
 
 ## about font-size
