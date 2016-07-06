@@ -6,7 +6,10 @@ fis3 对px单位的css属性自动转化为rem为单位的fis插件。
     - 使用node-css把css解析后,对px为单位对属性进行rem转换处理。
     - 对文字进行特殊处理追加至产出的css文件之后。
     - developer只用专注开发,配置灵活方便, 对原始文件无侵入。
------------------
+---------------------------------------
+
+## flexible.js
+默认可以配合淘宝的[flexible.js](https://github.com/amfe/lib-flexible)使用
 
 ## fis配置
 
