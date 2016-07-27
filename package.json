@@ -14,6 +14,15 @@
     "type": "git",
     "url": "git+https://github.com/Neverland/fis3-parser-rem.git"
   },
+  "keywords": [
+    "rem",
+    "px to rem",
+    "px2rem",
+    "fis rem",
+    "fis3 rem",
+    "fis3 px2rem",
+    "fis3 px to rem"
+  ],
   "author": [
     {
       "name": "ienix",
