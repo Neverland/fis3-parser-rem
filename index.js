@@ -7,7 +7,7 @@
 
 "use strict";
 
-var rem = require('./bin/main.js');
+var rem = require('rem-core');
 
 var entry = module.exports = function (content, file, conf) {
 
