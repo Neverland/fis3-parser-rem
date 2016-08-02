@@ -1,15 +1,12 @@
 {
   "name": "fis3-parser-rem",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "rem-core": "0.0.3"
+    "rem-core": ">=0.0.5"
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "node ./spec/test/main.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Neverland/fis3-parser-rem.git"
